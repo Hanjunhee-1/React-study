@@ -1,0 +1,3 @@
+# React-study
+
+아직 backend 실력이 부족하지만 frontend 도 배우고 싶어서...
