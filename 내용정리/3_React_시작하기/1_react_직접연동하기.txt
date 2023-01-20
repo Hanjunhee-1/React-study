@@ -1,0 +1,48 @@
+React App 을 따로 만들지 않고 "직접" 만들어서 연동까지 해보았다.
+
+html, css, js 코드를 작성했다.
+```
+    // index.html
+    <html>
+        <head>
+            <title>React</title>
+            <link rel="stylesheet" href="styles.css">
+        </head>
+        <body>
+            <h1>Hello, React</h1>
+
+            <div id="root"></div>
+
+            <!-- 리액트 가져오기 -->
+            <script src="https://unpkg.com/react@17/umd/react.development.js" crrosorigin></script>
+            <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+            <!-- 리액트 컴포넌트 가져오기 -->
+            <script src="MyButton.js"></script>
+        </body>
+    </html>
+```
+```
+    // styles.css
+    h1 {
+        color: green;
+        font-style: italic;
+    }
+```
+```
+    // MyButton.js
+    const MyButton = (props) => {
+        const [isClicked, setIsClicked] = React.useState(false);
+
+        return React.createElement(
+            'button',
+            { onClick: () => setIsClicked(true) },
+            isClicked ? 'Clicked!' : 'Click here!'
+        )
+    }
+
+const domContainer = document.querySelector('#root');
+ReactDOM.render(React.createElement(MyButton), domContainer);
+```
+
+React 는 아무것도 몰라서 그냥 보이는대로 작성했다.
