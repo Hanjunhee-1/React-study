@@ -1,0 +1,105 @@
+★  JSX 란
+
+    JS 는 JavaScript 를 뜻한다는 것을 알고 있다. 그럼 JSX 는 무엇일까?
+    
+    JSX 는 영어로 "A syntax extension to JavaScript" 라는 뜻을 가지고 있다. 
+    간단히 말해 JavaScript 의 문법을 확장시킨 것이다.
+
+    무엇을 확장시켰을까? 
+    XML/HTML 도 사용할 수 있다.
+    아래의 코드를 보자.
+    ```
+        const element = <h1>Hello, React!</h1>
+    ```
+    const 라는 scope 를 사용해 element 변수를 생성해주었다. 그런데 html 코드를 변수에 대입해주고 있다.
+    이것은 JSX 의 문법으로 사용이 가능한 문법이다.
+
+
+    ※  잠깐 알고 넘어가기
+
+        const 를 매번 사용하지만 정확히 무엇인지 잘 모르기 때문에 알고 넘어갈 필요가 있다고 생각했다. 
+        const 는 block-scope 블록 레벨 스코프인데 이것을 알기 위해서는 var, let 에 대해서도 전체적으로 알아야 한다.
+
+        (1) var
+            function-scope 로 함수 레벨 스코프이다. 함수 내에서 선언된 변수는 함수 내에서만 유효하며 함수 외부에서는 참조할 수 없다.
+            함수 내부에서 선언한 변수는 지역변수이며 함수 외부에서 선언한 변수는 전역변수이다.
+
+            var 와 함께 선언된 변수는 다음과 같은 특징을 가진다.
+            -   변수중복 선언 허용
+            -   변수 호이스팅 가능(변수를 선언하지 않아도 참조가 가능하다는 뜻)
+
+        (2) let
+            const 와 마찬가지로 블록 레벨 스코프이다. 블록 레벨 스코프의 특징은 함수, if문, for문, while문, try-catch문 등의 블록 내에서
+            선언된 변수는 코드 블록 내부에서만 유효하며 코드 블록 외부에서는 참조할 수 없다. 즉, 코드 블록 내부에서 선언한 변수는 지역 변수이다.
+
+            let 과 함께 선언된 변수는 다음과 같은 특징을 가진다.
+            -   변수중복 선언 금지
+            -   변수 호이스팅 불가능
+                --> var 의 경우 선언하지 않은 변수를 참조할 경우 'undefined' 를 반환하지만 let 은 호이스팅이 불가능하므로
+                    error 가 발생한다.
+
+        (3) const 
+            let 과 거의 대부분 같다. 하지만 다른 것들이 존재하는데 아래와 같다.
+
+            -   let 은 재할당이 가능하지만 const 는 재할당이 불가능하다. (해당 부분 덕분에 상수를 선언할 때 쓰인다.)
+                ★  하지만 객체의 경우에는 객체 자체를 재할당 하는 것은 불가능하지만 객체가 가지는 property 를 추가/삭제 혹은 값 변경은 가능하다.
+            -   let 은 선언만 하는 것이 가능하지만 const 는 선언과 동시에 할당이 이루어져야 한다.
+
+
+★  JSX 의 역할
+
+    XML/HTML 로 작성된 코드를 JavaScript 코드로 변환해주는 역할을 한다.
+    React 에서 XML/HTML 코드를 JavaScript 로 변환해주는 역할을 하는 것은
+    'createElement' 라는 함수이다. 
+
+    아래의 예제를 보자.
+    ```
+        // JSX 를 사용한 코드
+        class Hello extends React.Component {
+            render() {
+                return <div>Hello {this.props.toWhat}</div>
+            }
+        }
+
+        ReactDOM.render(
+            <Hello toWhat="React">,
+            document.getElementById('root')
+        );
+    ```
+    ```
+        // JSX 를 사용하지 않은 코드
+        class Hello extends React.Component {
+            render() {
+                return React.createElement('div', null, `Hello ${this.props.toWhat}`);
+            }
+        }
+
+        ReactDOM.render(
+            React.createElement(Hello, { toWhat: 'React' }, null),
+            document.getElementById('root')
+        );
+    ```
+    JSX 를 사용하지 않고 React 의 createElement 를 통해 XML/HTML 코드를 JavaScript 로 바꿀 수 있었다.
+
+    ※  그럼 createElement() 함수의 매개변수로는 무엇이 필요할까?
+
+        React.createElement(
+            type,
+            [props],
+            [...children]
+        )
+
+        (1) type
+            div, h1, span 등과 같은 html 태그가 올수도 있고 다른 React Component 가 올 수도 있다.
+
+        (2) [props]
+            아직 자세히 배우지 않았기 때문에 속성들이 들어간다 정도로만 알고 있으면 될 것 같다.
+
+        (3) [...children]
+            현재 element 가 포함하고 있는 자식 element 가 들어간다.
+
+
+    React 에서 꼭 JSX 를 사용해야 할까?
+    --> 그렇지 않다. 왜냐하면 createElement() 로 element 를 생성해줄 수 있기 때문이다.
+        하지만 예제를 보았다시피 JSX 로 작성된 코드가 눈에 더 잘들어오고 가독성을 높일 수 있기 때문에
+        JSX 를 잘다룰 줄 아는 것이 유용하다.
