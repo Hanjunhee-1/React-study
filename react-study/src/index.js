@@ -16,6 +16,8 @@ root.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+// 탭이 2개가 렌더링됨
 setInterval(() => {
   root.render(
     <React.StrictMode>
