@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Library from './01_실습_JSX코드작성/Library';
 import ConfirmDialog from './02_실습_Element알아보기/ConfirmDialog';
+import Clock from './03_실습_시계만들기/Clock';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,5 +16,11 @@ root.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+setInterval(() => {
+  root.render(
+    <React.StrictMode>
+      <Clock/>
+    </React.StrictMode>  )
+}, 1000);
 
 reportWebVitals();
