@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import Library from './실습_JSX코드작성/Library';
-import ConfirmDialog from './실습_Element알아보기/ConfirmDialog';
+import Library from './01_실습_JSX코드작성/Library';
+import ConfirmDialog from './02_실습_Element알아보기/ConfirmDialog';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
