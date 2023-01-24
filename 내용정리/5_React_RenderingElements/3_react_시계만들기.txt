@@ -143,6 +143,9 @@ setInterval() 함수를 사용하는 것도 알겠고 setTime() 함수를 사용
 마운팅 해준 것이 있다면 언마운팅해주는 부분도 필요하다고 한다. 그래서 언마운팅할 때 사용하기 위해 this.timerId 라는 곳에
 setInterval() 함수 실행 내용을 저장하고 componentWillUnmount() 함수에서 clearInterval() 함수를 사용하여 언마운팅 해준다.
 
+★  setInterval() 과 clearInterval() 에 대한 사용방법 참고링크
+    https://curryyou.tistory.com/328
+
 ※  componentWillUnmount() 가 없으면 에러가 날까?
     테스트를 해본 결과 에러가 나지 않는다. 그리고 componentDidMount() 에서도 this.timerId 에 굳이 setInterval() 함수 실행 내용을 저장할 필요도 없다.
     왜냐하면 componentDidMount() 함수는 페이지가 렌더링 된 후에 내용이 실행되기 때문이다.
