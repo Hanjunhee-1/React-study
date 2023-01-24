@@ -13,16 +13,17 @@ root.render(
   <React.StrictMode>
     <Library />
     <ConfirmDialog/>
+    <Clock/>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
 // 탭이 2개가 렌더링됨
-setInterval(() => {
-  root.render(
-    <React.StrictMode>
-      <Clock/>
-    </React.StrictMode>  )
-}, 1000);
+// setInterval(() => {
+//   root.render(
+//     <React.StrictMode>
+//       <Clock/>
+//     </React.StrictMode>  )
+// }, 1000);
 
 reportWebVitals();
