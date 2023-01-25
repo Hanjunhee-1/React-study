@@ -1,0 +1,29 @@
+★  Component 에 대해서
+
+    React 는 Component 기반으로 구성되어있다.
+    웹 페이지는 여러 개의 Component 로 구성되고 하나의 Component 는 또 다른 여러 개의 
+    Component 로 구성될 수 있다.
+
+    React 의 Component 는 개념적으로 JavaScript 의 함수와 같다.
+    입력에 따른 출력을 해주기 때문이다.
+
+    여기서 함수는 React Component, 입력은 Props, 출력은 React Element 가 된다.
+
+
+★  Props 에 대해서
+
+    Props 는 속성이란 뜻인데 무엇의 속성일까?
+
+    바로 React Component 의 속성이다.
+
+    붕어빵과 붕어빵 기계로 이해하기 쉽게 설명해보자면
+
+    붕어빵 기계는 React Component 이다.
+    붕어빵 기계로 찍어낸 붕어빵은 React Element 이다.
+    그럼 Props 는 무엇인지 대충 이해가 간다.
+    바로 붕어빵에 들어가는 재료를 의미한다.
+
+    React Component 에 어떤 Props 를 입력해주냐에 따라서 각기 다른 React Element 를 출력해줄 수 있다.
+
+
+    Props 는 "Component 에 전달할 다양한 정보를 담고 있는 JavaScript 객체" 라고 알고 있으면 된다.
