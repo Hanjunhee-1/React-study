@@ -1,0 +1,75 @@
+★  Component 만들기
+
+    Component 는 2종류로 나뉜다.
+
+    (1) function Component
+
+        최근에는 function Component 를 주로 사용한다. Hook 이라는 개념이 등장하는데 이것은 나중에 배울 것이다.
+
+        function Component 의 예제를 보자.
+        ```
+            function Hello(props) {
+                return (
+                    <h1>안녕, {props.name}</h1>
+                );
+            }
+        ```
+        이렇게 함수의 형태로 되어있는 Component 가 function Component 이다.
+
+    (2) class Component
+        
+        React 초기 버전에 주로 사용했지만 사용하기에 불편하다는 의견들이 많아져서
+        function Component 를 주로 사용하기 시작했다.
+
+        class Component 의 예제를 보자.
+        ```
+            class Hello extends React.Component {
+                render() {
+                    return (
+                        <h1>안녕, {props.name}</h1>
+                    )
+                }
+            }
+        ```
+        /03_실습_시계만들기/Clock.jsx 에서 코드를 수정하면서 class Component 를 작성해본 적이 있다.
+        위의 예제는 function Component 를 class Component 로 바꾼 것이다.
+        class Component 를 만들기 위해서 React.Component 클래스를 상속받아야 하고 평범한 return 이 아닌 render() 라는 함수로 감싼 뒤에
+        return 을 해주어야만 정상적으로 렌더링할 수 있다.
+
+
+★  Component 네이밍 규칙
+
+    Component 의 이름은 반드시 영어로 이루어져있어야 하고 
+    반드시 대문자로 시작해야 한다.
+
+    ※  왜 대문자로 시작해야할까?
+        우리가 만든 Component 를 어떻게 사용하여 렌더링해주는지 잘 생각해보면 알 수 있다.
+        Clock 이라는 이름의 Component 를 만들어서 사용한다고 해보자.
+        Component 의 이름을 마치 원래 있던 HTML 태그 마냥 <Clock /> 이런 식으로 사용한다.
+        만약, Component 의 이름이 clock 이었다면...?
+        <clock /> 이런 식으로 사용해야 하는데 이렇게 소문자로 사용하게 된다면 기존에 존재하는 HTML 태그와 겹칠 수 있다.
+        뿐만 아니라 Component 이름을 소문자로 하면 React 에서는 기존에 존재하는 HTML 태그로 인식해버리기도 한다.
+        때문에 이와 차별을 주기 위해 Component 이름은 반드시 대문자로 시작해야 한다.
+
+
+★  Component 렌더링
+
+    예제를 보는 것이 더 잘 이해된다.
+    ```
+        function Hello(props) {
+            return (
+                <h1>안녕, {props.name}</h1>
+            )
+        }
+        const element = <Hello name="리액트" />;
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(
+            element,
+            document.getElementById('root')
+        );
+    ```
+
+    보통 이렇게 한 곳에 모아두지 않는다.
+    function Component 부분은 파일을 따로 작성하여 index.js 에서 import 하여 사용한다.
+
+    아무튼 위의 방식처럼 Component 를 렌더링 할 수 있다.
