@@ -1,0 +1,122 @@
+★  Component 합성
+
+    여러 Component 끼리 합치는 것인데 React 에서는 Component 안에 또 다른 Component 를 쓸 수 있다는 것을 알고 있다.
+    때문에 구현하기 복잡한 화면을 여러 개의 Component 로 나눠서 구현할 수 있다
+
+    Component 합성의 예제를 보자.
+    ```
+        function Welcome(props) {
+            return (
+                <h1>Hello, {props.name}!</h1>
+            )
+        }
+
+        function App(props) {
+            return (
+                <div>
+                    <Welcome name="React" />
+                    <Welcome name="NestJS" />
+                    <Welcome name="Prisma" />
+                </div>
+            )
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+
+        root.render(
+            <App />,
+            document.getElementById('root')
+        );
+    ```
+    위의 예제를 보면 Welcome Component 를 App Component 내부에서 사용한 뒤
+    App Component 를 렌더링해주고 있다. 이것이 Component 합성의 예시이다.
+
+
+★  Component 추출
+
+    위에서 말한 Component 합성과 반대라고 생각하면 된다.
+    복잡한 Component 에서 Component 를 추출해내는 것이다.
+
+    Component 추출을 잘하게 되면 Component 의 재사용성이 높아지므로 효율적인 코드를 작성할 수 있다.
+
+    Component 추출의 예제를 보자.
+    ```
+        // 복잡한 모습의 Component 
+        function Comment(props) {
+            return (
+                <div className="comment">
+                    <div className="user-info">
+                        <img className="avatar"
+                            src={props.author.avatarUrl}
+                            alt={props.author.name}
+                        />
+                        <div className="user-info-name">
+                            {props.author.name}
+                        </div>
+                    </div>
+
+                    <div className="comment-text">
+                        {props.text}
+                    </div>
+
+                    <div className="comment-date">
+                        {formatDate(props.date)}
+                    </div>
+                </div>
+            )
+        }
+    ```
+    Comment Component 가 조금 복잡한 구조임을 알 수 있다.
+    해당 Component 에서 img 태그를 사용한 곳을 Avatar 라는 별도의 Component 로 만들어볼 것이다.
+
+    ```
+        // Avatar Component
+        function Avatar(props) {
+            return (
+                <img className="avatar"
+                    src={props.user.avatarUrl}
+                    alt={props.user.name}
+                />
+            )
+        }
+    ```
+
+    그 다음으로 user-info 부분을 별도의 Component 로 만들어볼 것이다.
+
+    ```
+        // UserInfo Component
+        function UserInfo(props) {
+            return (
+                <div className="user-info">
+                    <Avatar user={props.user}/>
+                    <div className="user-info-name">
+                        {props.user.name}
+                    </div>
+                </div>
+            )
+        }
+    ```
+
+    UserInfo Component 내부에서 Avatar Component 를 사용한 모습이다.
+
+    이제 복잡했던 Component 를 추출해서 따로 만들어둔 Component 로 합성해보면 아래와 같이 된다.
+
+    ```
+        function Comment(props) {
+            return (
+                <div className="comment">
+                    <UserInfo user={props.author} />
+                    <div className="comment-text">
+                        {props.text}
+                    </div>
+
+                    <div className="comment-date">
+                        {formatDate(props.date)}
+                    </div>
+                </div>
+            )
+        } 
+    ```
+    정말 간단해졌다!
+    이렇게 Component 추출과 합성을 잘하면 효율적으로 코드를 작성할 수 있고
+    재사용성도 높아지고 개발 속도도 향상될 것이다.
