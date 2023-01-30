@@ -10,6 +10,7 @@ import Clock from './03_실습_시계만들기/Clock';
 import Market from './04_실습_createElement사용해보기/Market';
 import CommentList from './05_실습_댓글컴포넌트작성해보기/CommentList';
 import NotificationList from './06_실습_State사용해보기/NotificationList';
+import Counter from './07_실습_useState와useEffect사용해보기/Counter';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
     <Clock/>
     <Market/>
     <CommentList/>
+    <Counter />
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -26,9 +28,9 @@ root.render(
 
 // Mount, Update, Unmount 를 좀 더 잘 알아보기 위해 따로 render 한 것.
 // 확인하고 난 뒤에는 주석처리 해둘 것
-root.render(
-  <NotificationList />,
-  document.getElementById('root')
-)
+// root.render(
+//   <NotificationList />,
+//   document.getElementById('root')
+// )
 
 reportWebVitals();
