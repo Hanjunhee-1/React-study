@@ -11,6 +11,7 @@ import Market from './04_실습_createElement사용해보기/Market';
 import CommentList from './05_실습_댓글컴포넌트작성해보기/CommentList';
 import NotificationList from './06_실습_State사용해보기/NotificationList';
 import Counter from './07_실습_useState와useEffect사용해보기/Counter';
+import Accomodate from './08_실습_Hooks사용해보기/Accomodate';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,6 +22,7 @@ root.render(
     <Market/>
     <CommentList/>
     <Counter />
+    <Accomodate />
   </React.StrictMode>,
   document.getElementById('root')
 );
