@@ -12,6 +12,7 @@ import CommentList from './05_실습_댓글컴포넌트작성해보기/CommentLi
 import NotificationList from './06_실습_State사용해보기/NotificationList';
 import Counter from './07_실습_useState와useEffect사용해보기/Counter';
 import Accomodate from './08_실습_Hooks사용해보기/Accomodate';
+import ConfirmButton from './09_실습_클릭이벤트처리/ConfirmButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,6 +24,7 @@ root.render(
     <CommentList/>
     <Counter />
     <Accomodate />
+    <ConfirmButton />
   </React.StrictMode>,
   document.getElementById('root')
 );
