@@ -1,0 +1,23 @@
+이번에는 클릭 이벤트를 처리해볼 것이다.
+솔직히 말하면 이전에 해왔던 실습에서 이벤트를 다룬 것들이 있기 때문에 크게 어렵지 않았다.
+
+```
+    // ConfirmButton.jsx
+    import { useState } from 'react';
+
+    export default function ConfirmButton(props) {
+        const [isConfirmed, setIsConfirmed] = useState(false);
+
+        const handleConfirm = () => {
+            setIsConfirmed(isConfirmed => !isConfirmed);
+        };
+
+        return (
+            <button onClick={handleConfirm} disabled={isConfirmed}>
+                {isConfirmed ? '확인됨' : '확인하기'}
+            </button>
+        )
+    }
+```
+
+index.js 에서 import 하여 사용해보면 된다.
