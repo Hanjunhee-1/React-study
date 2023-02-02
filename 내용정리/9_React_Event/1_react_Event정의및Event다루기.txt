@@ -1,0 +1,26 @@
+★  Event 의 정의
+
+    예를 들면 사용자가 어떤 버튼을 클릭했을 때
+    이러한 것을 Event 라고 한다.
+
+    먼저, DOM 의 Event 를 예제코드로 보자.
+    ```
+        <button onclick="activate()">
+            Activate
+        </button>
+    ```
+    해당 버튼을 누르면 activate() 라는 함수를 실행한다.
+
+    이번에는 React 의 Event 를 예제코드로 보자.
+    ```
+        <button onClick={activate}>
+            Activate
+        </button>
+    ```
+    DOM 이랑 굉장히 비슷하다. 다른 것이라고는 onClick 과 JavaScript 코드임을
+    나타내주는 {} 뿐이다.
+
+    이렇게 어떤 Event 가 발생하면 해당 Event 를 처리해주는 것을
+    Event Handler 라고 한다. 또는 Event Listner 라고도 한다.
+
+    
