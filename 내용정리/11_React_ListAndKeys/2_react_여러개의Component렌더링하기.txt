@@ -1,0 +1,23 @@
+React 에서는 List 를 활용하여 반복되는 여러 개의 컴포넌트를 쉽게 렌더링할 수 있다.
+
+List 를 활용하여 렌더링을 하기 위해서는 JavaScript 의 함수인 map() 함수를 적극적으로
+활용해야 한다.
+
+일단 예시 코드를 보자
+```
+    const numbers = [1,2,3,4,5];
+    const listItems = numbers.map((number) => {
+        <li>{number}</li>
+    });
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+        <ul>{listItems}</ul>
+        document.getElementById('root');
+    )
+```
+위의 코드는 numbers 라는 list 에 담긴 값들을 listItems 에 li 태그로 감싸서
+저장한뒤 렌더링 해주고 있다. 
+
+※  하지만 위와 같이 코드를 작성한 뒤 작동시키면 잘 작동하긴 하지만
+    console 창에서 경고문을 띄워준다. 왜냐하면 Key 가 없기 때문이다.
