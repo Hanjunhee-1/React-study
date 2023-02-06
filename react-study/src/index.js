@@ -15,10 +15,12 @@ import Accomodate from './08_실습_Hooks사용해보기/Accomodate';
 import ConfirmButton from './09_실습_클릭이벤트처리/ConfirmButton';
 import LandingPage from './10_실습_로그인여부툴바만들기/LandingPage';
 import AttendanceBook from './11_실습_출석부/AttendanceBook';
+import SignUp from './12_실습_사용자정보입력받기/SignUp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <SignUp />
     <AttendanceBook />
     <LandingPage />
     <Library />
