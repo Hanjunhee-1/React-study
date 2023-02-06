@@ -1,0 +1,65 @@
+이번에는 그동안 배운 것을 토대로 
+간단한 사용자 정보를 입력받는 form 을 작성해볼 것이다.
+
+우선 사용자로부터 받을 정보는 이름과 성별인데
+이름은 input 의 text 타입으로 받고
+성별은 select 타입으로 받는데 기본 값은 'Unknown' 으로 한다.
+
+
+```
+    // SignUp.jsx
+    import { useState } from "react";
+
+    export default function SignUp(props) {
+        const [name, setName] = useState('');
+        const [gender, setGender] = useState('Unknown');
+
+        const handleChangeName = (event) => {
+            setName(event.target.value);
+        }
+
+        const handleChangeGender = (event) => {
+            setGender(event.target.value);
+        }
+
+        const handleSubmit = (event) => {
+            alert(`이름: ${name}, 성별: ${gender}`);
+            event.preventDefault();
+        }
+
+        return (
+            <form onSubmit={handleSubmit}>
+                <label>
+                    이름:
+                    <input type="text" value={name} onChange={handleChangeName} />
+                </label>
+                <br />
+                <label>
+                    성별:
+                    <select value={gender} onChange={handleChangeGender}>
+                        <option value="Unknown">공개안함</option>
+                        <option value="Man">남자</option>
+                        <option value="Woman">여자</option>
+                    </select>
+                </label>
+                <button type="submit">제출</button>
+            </form>
+        )
+    }
+```
+```
+    // index.js
+    ...
+    import SignUp from './12_실습_사용자정보입력받기/SignUp';
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <React.StrictMode>
+        <SignUp />
+        ...
+    </React.StrictMode>,
+    document.getElementById('root')
+    );
+```
+이번에 한 것은 크게 어려운 것이 없는 것 같다. preventDefault() 에 대해서는 
+https://basemenks.tistory.com/239 해당 링크를 참고하자.
