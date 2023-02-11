@@ -17,10 +17,12 @@ import LandingPage from './10_실습_로그인여부툴바만들기/LandingPage'
 import AttendanceBook from './11_실습_출석부/AttendanceBook';
 import SignUp from './12_실습_사용자정보입력받기/SignUp';
 import Calculator from './13_실습_섭씨온도와화씨온도표시하기/Calculator';
+import ProfileCard from './14_실습_Card컴포넌트만들기/ProfileCard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ProfileCard />
     <Calculator />
     <SignUp />
     <AttendanceBook />
