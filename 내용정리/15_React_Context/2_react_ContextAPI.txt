@@ -1,0 +1,50 @@
+Context 를 사용하기 위해서 가장 먼저 해야하는 것은 당연히 Context 를 생성하는 것이다.
+
+Context 를 생성하기 위해서는 createContext() 라는 함수를 사용한다.
+예시 코드는 다음과 같다.
+```
+    const MyContext = React.createContext(기본값);
+```
+※  만약 기본값으로 undefined 를 넣었다면 기본값이 사용되지 않는다...
+
+
+생성을 한 후에는 상위 컴포넌트에서 Context 를 사용할 수 있도록 해주어야 하는데
+이때 사용하는 것이 Provider 이다.
+모든 React 컴포넌트에서는 생성한 Context 를 제공해줄 수 있다.
+예시 코드는 다음과 같다.
+```
+    <MyContext.Provider value={ /* some value */}>
+        // 다른 컴포넌트를 부른다.
+    </MyContext>
+```
+Context 를 제공해주기 위해 Provider 를 사용한다.
+이때 넘겨주는 value 라는 것은 자신이 하위 컴포넌트에서 사용하고 싶은 값을 넘겨줄 수 있다.
+만약 value 를 쓰지 않거나 undefined 라면 Context 생성 시 기본값으로 정했던 것을 사용하게 된다.
+
+※  Provider 컴포넌트는 조심해서 사용해야 하는데 Provider 컴포넌트가 다시 렌더링될 때마다
+    모든 하위 Consumer 컴포넌트들이 의도치않게 다시 렌더링 된다.
+
+    이를 막기 위한 방법은 value 를 바로 넣어주는 것이 아닌 useState() 를 통해 관리하게 하고 value 를 넣어주는 것이다.
+
+
+이제 Provider 가 넘겨준 Context 를 사용하려면 Consumer 를 통해 사용하면 된다.
+예시 코드는 다음과 같다.
+```
+    <MyContext.Consumer>
+        {value => /* Context 값에 따라 컴포넌트들을 렌더링 */}
+    </MyContext.Consumer>
+```
+만약 Provider 에서 따로 넘겨준 value 가 없다면 생성한 Context 의 기본값을 사용하게 된다. 
+
+
+useContext() 라는 훅을 사용하여 Context 를 사용할 수 있다.
+예시 코드는 다음과 같다.
+```
+    function MyComponent(props) {
+        const value = useContext(MyContext);
+
+        return (
+            // ...
+        )
+    }
+```
