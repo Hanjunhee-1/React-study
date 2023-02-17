@@ -1,0 +1,28 @@
+★  CSS
+
+    Cascading Style Sheets 의 약자로 웹 페이지를 더욱 아름답게 꾸며주기 위한 언어이다.
+
+★  Selector
+
+    선택자를 Selector 라고 한다. 
+
+
+★  CSS 기본 문법
+
+    ``` 
+        h1 {
+            color: green;
+            font-size: 16px;
+        }
+    ```
+    여기서 h1 은 선택자가 된다. 선택자에는 h1 과 같은 실제 태그가 올수도 있고 
+    실제 태그에 지정해준 class 이름이나 id 이름이 올 수 있다. 
+    class 의 경우 dot(.) 으로 접근하고 id 의 경우 sharp(#) 으로 접근한다.
+
+    {} 안의 내용들을 Declaration 이라고 한다.
+    각 선언마다 콜론(:) 을 기준으로 왼쪽은 변수이고
+    오른쪽은 value 이다.
+
+
+더 자세한 내용은 아래의 링크를 참고하자.
+https://www.w3schools.com/css
