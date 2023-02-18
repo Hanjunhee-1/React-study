@@ -1,0 +1,131 @@
+★  display
+
+    레이아웃에서 가장 중요한 속성이라고 할 수 있다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) none
+        element 를 화면에서 숨기기 위해 사용한다.
+
+    (2) block
+        element 를 블록 단위로 배치하기 위해 사용한다.
+
+    (3) inline
+        element 를 라인 안에 넣기 위해 사용한다.
+
+    (4) flex
+        element 를 블록 레벨의 flex container 로 표시하기 위해 사용한다.
+        보통 정렬과 관련된 스타일을 구현하기 위해 많이 사용한다.
+
+    
+★  visibility
+
+    element 를 화면에 보여주거나 감추기 위해 사용한다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) visible
+        element 를 화면에 보이게 하는 것이다.
+
+    (2) hidden
+        element 를 화면에서 안보이게 감춘다.
+        display: none; 과 헷갈릴 수도 있는데
+        visibility: hidden; 은 element 를 안보이게만 하는 것이고 화면에서의 영역은 그대로 차지한다.
+
+    
+★  position
+
+    element 를 어디에 위치시킬 것인지 정의하기 위해 사용한다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) static
+        기본값으로 element 를 원래의 순서대로 위치시킨다.
+
+    (2) fixed
+        element 를 브라우저 window 에 상대적으로 위치시킨다.
+
+    (3) relative
+        element 를 보통의 위치에 상대적으로 위치시킨다.
+
+    (4) absolute
+        element 를 절대적 위치에 위치시킨다.
+
+
+★  길이와 관련된 속성들
+
+    width
+    height
+    min-width
+    max-width
+    min-height
+    max-height
+
+    이름에서부터 알 수 있을 것 같다...
+
+
+★  flexbox
+
+    flexbox 는 정렬을 위해 사용하는 것으로 크게 flex container 와 flex item 으로 나뉜다.
+    flex item 은 flex container 에 속한다. flex container 는 여러 개의 flex item 을 가질 수 있다.
+
+    flex container 로 지정해주기 위해서는 
+    display: flex; 를 써주어야 한다.
+
+
+★  flex-direction
+
+    flex item 을 어떤 식으로 정렬해줄지 결정하기 위해 사용한다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) row
+        기본값이며 아이템을 row 를 따라 가로 순서대로 왼쪽부터 배치한다.
+
+    (2) column
+        아이템을 column 을 따라 세로 순서대로 위쪽부터 배치한다.
+
+    (3) row-reverse
+        아이템을 row 의 역방향으로 오른쪽부터 배치한다.
+
+    (4) column-reverse
+        아이템을 column 의 역방향으로 아래쪽부터 배치한다.
+
+
+★  align-items
+
+    flex 와 관련된 속성이다. container 내에서 아이템을 어떻게 정렬할지 결정한다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) stretch
+        기본값으로써 아이템을 늘려서 container 를 가득 채운다.
+
+    (2) flex-start
+        cross axis 의 시작 지점으로 아이템을 정렬한다.
+
+    (3) center
+        cross axis 의 중앙으로 아이템을 정렬한다.
+
+    (4) flex-end
+        cross axis 의 끝 지점으로 아이템을 정렬한다.
+
+    (5) baseline
+        아이템을 baseline 을 기준으로 정렬한다.
+
+
+★  justify-content
+
+    flex 와 관련된 속성이다. container 내에서 아이템들을 어떻게 나란히 맞출 것인지를 결정한다.
+    아래와 같은 대표적인 값들이 있다.
+
+    (1) flex-start
+        main axis 의 시작 지점으로 아이템을 맞춘다.
+
+    (2) center
+        main axis 의 중앙으로 아이템을 맞춘다.
+
+    (3) flex-end
+        main axis 의 끝 지점으로 아이템을 맞춘다.
+
+    (4) space-between
+        main axis 를 기준으로 첫 아이템은 시작 지점에 맞추고 마지막 아이템은 끝 지점에 맞추며,
+        중간에 있는 아이템들 사이의 간격이 일정하게 되도록 맞춘다.
+
+    (5) space-around
+        main axis 를 기준으로 각 아이템의 주변 간격을 동일하게 맞춘다.
