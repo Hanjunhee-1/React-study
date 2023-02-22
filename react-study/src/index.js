@@ -19,10 +19,12 @@ import SignUp from './12_실습_사용자정보입력받기/SignUp';
 import Calculator from './13_실습_섭씨온도와화씨온도표시하기/Calculator';
 import ProfileCard from './14_실습_Card컴포넌트만들기/ProfileCard';
 import DarkOrLight from './15_실습_Context를활용한테마변경기능/DarkOrLight';
+import Blocks from './16_실습_StyledComponents사용하기/Blocks';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Blocks />
     <DarkOrLight />
     <ProfileCard />
     <Calculator />
