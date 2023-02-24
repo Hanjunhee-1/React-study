@@ -25,20 +25,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Blocks />
-    <DarkOrLight />
-    <ProfileCard />
-    <Calculator />
-    <SignUp />
-    <AttendanceBook />
-    <LandingPage />
-    <Library />
-    <ConfirmDialog/>
-    <Clock/>
-    <Market/>
-    <CommentList/>
-    <Counter />
-    <Accomodate />
-    <ConfirmButton />
   </React.StrictMode>,
   document.getElementById('root')
 );
