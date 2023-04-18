@@ -1,42 +1,30 @@
-★  props 의 특징
+# 🔔 Props 의 특징
 
-    (1) Read-only
-        오직 읽을 수만 있다.
+- 오직 읽을 수만 있습니다.
 
-        다른 props 로 새로운 Element 를 생성하기 위해서는 어떻게 해야할까?
-        새로운 props 를 컴포넌트에 전달하여 새로운 Element 를 만들어야 한다.
+- Props 는 pure 함수 같은 역할을 합니다.
 
-        "모든 React 컴포넌트는 그들의 props 에 관해서는 pure 함수 같은 역할을 해야한다." - React 공식문서
+    - pure 함수는 무엇일까요?
+        ```js   
+            // pure function
+            function pure_sum(a, b) {
+                return a + b;
+            }
 
-        ※  pure 함수는 무엇일까?
-            동일한 매개변수가 주어지면 항상 동일한 결과를 반환하는 원래의 목적대로 동작하는 함수를 의미한다.
-            아래의 함수를 보자.
-            ```
-                // pure function
-                function pure_sum(a, b) {
-                    return a + b;
-                }
+            // impure function
+            const fixed = 10;
+            function impure_sum(a, b) {
+                return a + b + fixed;
+            }
+        ```
+        - 위의 pure_sum() 함수는 매개변수로 받은 a 와 b 끼리의 합을 출력합니다. 이처럼 함수 이름과 매개변수를 보고 내용을 맞출 수 있다면 pure 함수인 것입니다. 
 
-                // impure function
-                const fixed = 10;
-                function impure_sum(a, b) {
-                    return a + b + fixed;
-                }
-            ```
-            pure_sum() 을 보면 매개변수로 a 와 b 를 입력받고 변수끼리의 합을 출력한다.
-            함수의 이름과 매개변수를 보고 내용을 맞출 수 있다면 pure 함수인 것 같다.
+        - 반대로 impure_sum() 함수는 매개변수로 a 와 b 를 받는 것까지는 동일합니다만 예측한 내용과는 다른 로직이 수행되고 있습니다. <br/><br/>
+- 즉, 모든 React 컴포넌트는 props 를 직접 바꿀 수 없고, 같은 props 에 대해서는 항상 같은 결과를 보여줘야 하는 것입니다. <br/><br/><br/><br/>
 
-            하지만 impure_sum() 을 보면 매개변수로 a 와 b 를 받고 fixed 라는 외부 변수까지 더해주고있다.
-            즉, 함수의 이름과 매개변수만 보았을 때 a 와 b 를 더한 값을 return 할 줄 알았지만 fixed 까지 더해서 return 해주고 있기 때문에
-            impure 함수이다.
+# 🔔 Props 사용법
 
-        즉, 모든 React 컴포넌트는 props 를 직접 바꿀 수 없고, 같은 props 에 대해서는 항상 같은 결과를 보여줘야 한다는 것이다.
-        여기서 결과는 당연히 Element 이다.
-
-
-★  props 사용법
-
-    예제를 보자.
+- 예제를 통해 알아보도록 하겠습니다. 
     ```
         function App(props) {
             return (
@@ -48,20 +36,17 @@
             )
         }
     ```
-    위의 예제는 Profile 이라는 컴포넌트에 name, introduction, viewCount 라는 이름의 props 를 넘겨주는 예제이다.
+    - 해당 예제는 Profile 이라는 컴포넌트에 name, introduction, viewCount 라는 이름의 props 를 넘겨주고 있습니다. 
 
-    ※  {} 중괄호로 감싼 것과 안 감싼 것의 차이는 무엇일까?
-        중괄호로 감싸준 것은 JavaScript 코드이다. 숫자와 관련된 것들은 중괄호로 감싸주어야 한다.
-        글자도 중괄호로 감싸도 상관없다.
-
-    위의 예제처럼 props 를 넘겨주었다면 props 객체는 아래와 같은 형태일 것이다.
-    ```
-        {
-            name: "React",
-            introduction: "Hello, React",
-            viewCount: 10,
-        }
-    ```
+    - props 객체는 아래와 같은 형태일 것입니다. 
+        ```
+            {
+                name: "React",
+                introduction: "Hello, React",
+                viewCount: 10,
+            }
+        ```
+<br/><br/><br/>
 
     또 다른 예제도 보자.
     ```
