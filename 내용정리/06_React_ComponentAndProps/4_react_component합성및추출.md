@@ -1,10 +1,9 @@
-★  Component 합성
+# 🔔 Component 합성
 
-    여러 Component 끼리 합치는 것인데 React 에서는 Component 안에 또 다른 Component 를 쓸 수 있다는 것을 알고 있다.
-    때문에 구현하기 복잡한 화면을 여러 개의 Component 로 나눠서 구현할 수 있다
+- 컴포넌트끼리 합치는 것을 의미합니다. 이전 예제들을 보면 컴포넌트의 children 으로 다른 컴포넌트가 존재하는 것을 볼 수 있었습니다. 이렇듯 사용자에게 보여줄 화면에 대한 요소들을 여러 컴포넌트로 나눠서 구현할 수 있습니다.
 
-    Component 합성의 예제를 보자.
-    ```
+- 아래는 컴포넌트 합성의 예시입니다.
+    ```js
         function Welcome(props) {
             return (
                 <h1>Hello, {props.name}!</h1>
@@ -16,32 +15,20 @@
                 <div>
                     <Welcome name="React" />
                     <Welcome name="NestJS" />
-                    <Welcome name="Prisma" />
+                    <Welcome name="Spring" />
                 </div>
             )
         }
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-
-        root.render(
-            <App />,
-            document.getElementById('root')
-        );
     ```
-    위의 예제를 보면 Welcome Component 를 App Component 내부에서 사용한 뒤
-    App Component 를 렌더링해주고 있다. 이것이 Component 합성의 예시이다.
+    - 예시를 보면 Welcome 이라는 컴포넌트를 App 컴포넌트 내부에서 사용하고 있습니다. 이것이 바로 컴포넌트 합성의 예시입니다. <br/><br/><br/><br/>
 
 
-★  Component 추출
+# 🔔 Component 추출
 
-    위에서 말한 Component 합성과 반대라고 생각하면 된다.
-    복잡한 Component 에서 Component 를 추출해내는 것이다.
+- 컴포넌트 합성의 반대 개념이라고 생각하면 됩니다. 복잡하게 구성되어 있는 컴포넌트를 각 요소 별로 나누어주는 것입니다. 컴포넌트 추출을 잘하면 재사용성이 높아지고 효율적인 코드를 작성할 수 있습니다.
 
-    Component 추출을 잘하게 되면 Component 의 재사용성이 높아지므로 효율적인 코드를 작성할 수 있다.
-
-    Component 추출의 예제를 보자.
-    ```
-        // 복잡한 모습의 Component 
+- 아래는 컴포넌트 추출의 예시입니다. 
+    ```js
         function Comment(props) {
             return (
                 <div className="comment">
@@ -66,10 +53,10 @@
             )
         }
     ```
-    Comment Component 가 조금 복잡한 구조임을 알 수 있다.
-    해당 Component 에서 img 태그를 사용한 곳을 Avatar 라는 별도의 Component 로 만들어볼 것이다.
+    - Comment 컴포넌트가 조금 복잡한 구조로 이루어져있음을 알수 있습니다. 지금부터 하나하나씩 추출해보도록 하겠습니다.<br/><br/><br/>
 
-    ```
+    - 우선 Avatar 컴포넌트를 따로 추출해보겠습니다.
+    ```js
         // Avatar Component
         function Avatar(props) {
             return (
@@ -80,10 +67,12 @@
             )
         }
     ```
+    <br/><br/><br/>
 
-    그 다음으로 user-info 부분을 별도의 Component 로 만들어볼 것이다.
 
-    ```
+
+    - 그 다음으로 user-info 부분을 별도의 컴포넌트로 추출하겠습니다.
+    ```js
         // UserInfo Component
         function UserInfo(props) {
             return (
@@ -96,12 +85,10 @@
             )
         }
     ```
+    - UserInfo 컴포넌트로 따로 추출해내면서 생성해둔 Avatar 컴포넌트와 합성한 모습입니다. <br/><br/><br/>
 
-    UserInfo Component 내부에서 Avatar Component 를 사용한 모습이다.
-
-    이제 복잡했던 Component 를 추출해서 따로 만들어둔 Component 로 합성해보면 아래와 같이 된다.
-
-    ```
+    - 이제 이렇게 컴포넌트를 추출하여 따로 만들어두었던 것들을 다시 합성시키면 아래와 같이 처음보다 간단한 모습의 컴포넌트가 만들어집니다. 
+    ```js
         function Comment(props) {
             return (
                 <div className="comment">
@@ -117,6 +104,3 @@
             )
         } 
     ```
-    정말 간단해졌다!
-    이렇게 Component 추출과 합성을 잘하면 효율적으로 코드를 작성할 수 있고
-    재사용성도 높아지고 개발 속도도 향상될 것이다.
