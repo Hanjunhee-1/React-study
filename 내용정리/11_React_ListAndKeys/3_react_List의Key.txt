@@ -1,2 +1,0 @@
-React 에서의 Key 값은 같은 List 에 있는 Elements 사이에서만 고유한 값이면 된다.
-map() 함수 안에 있는 Elements 는 꼭 Key 에 대한 속성이 필요하다!
